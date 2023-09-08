@@ -8,6 +8,10 @@ body{
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  font-family: 'Inter', sans-serif;
+}
+
 .wrapper {
   background: #FFFFFF;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
@@ -28,4 +32,16 @@ header {
 .price {
   color: #BDBDBD;
   font-size: 14px;
+}
+
+.search-block {
+  border: 1px solid #F3F3F3;
+  border-radius: 10px;
+  padding: 0 15px;
+  input {
+    border: 0;
+    padding: 13px;
+    font-size: 14px;
+    max-width: 100%;
+  }
 }

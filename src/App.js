@@ -25,7 +25,13 @@ function App() {
            </ul>
         </header>
         <div className="content p-10">
-            <h1 className='font-bold text-2xl m-0'>Все кроссовки</h1>
+            <div className="flex justify-between">
+                <h1 className='font-bold text-2xl m-0'>Все кроссовки</h1>
+                <div className="search-block flex">
+                    <img src="/img/search.svg" alt="Search"/>
+                    <input className='' placeholder='Поиск...' type="text"/>
+                </div>
+            </div>
             <div className="grid grid-cols-4 gap-4">
                 <div className="card mt-5">
                     <img width={133} height={112} src="/img/sneak/image1.jpg" alt=""/>
@@ -106,17 +112,6 @@ function App() {
                 </div>
                 <div className="card mt-5">
                     <img width={133} height={112} src="/img/sneak/image8.jpg" alt=""/>
-                    <p className='text-sm my-3.5'>Мужские Кроссовки Nike Blazer Mid Suede</p>
-                    <div className='flex justify-between'>
-                        <div className='flex flex-col'>
-                            <p className='price uppercase'>Цена</p>
-                            <p className='text-sm font-bold'>12 999 руб.</p>
-                        </div>
-                        <button><img src="/img/button.svg" alt=""/></button>
-                    </div>
-                </div>
-                <div className="card mt-5">
-                    <img width={133} height={112} src="/img/sneak/image1.jpg" alt=""/>
                     <p className='text-sm my-3.5'>Мужские Кроссовки Nike Blazer Mid Suede</p>
                     <div className='flex justify-between'>
                         <div className='flex flex-col'>

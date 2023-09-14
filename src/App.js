@@ -1,13 +1,20 @@
-import {Card} from "./components/Card";
+import {Index} from "./components/Card";
 import {Header} from "./components/Header";
 import {Drawer} from "./components/Drawer";
 
+const arr = [{
+    name: 'Мужские Кроссовки Nike Blazer Mid Suede', image: './img/sneak/image1.jpg', price: '12 999'
+}, {
+    name: 'Мужские Кроссовки Nike Blazer Suede', image: './img/sneak/image2.jpg', price: '12 231'
+}, {
+    name: 'Мужские Кроссовки Nike Blazer Mid', image: './img/sneak/image3.jpg', price: '14 999'
+}, {
+    name: 'Мужские Кроссовки Nike  Mid Suede', image: './img/sneak/image7.jpg', price: '22 999'
+}]
 
 function App() {
-  return (
-    <div className="wrapper">
+    return (<div className="wrapper">
         <Drawer/>
-
         <Header/>
         <div className="content p-10">
             <div className="flex justify-between">
@@ -18,11 +25,17 @@ function App() {
                 </div>
             </div>
             <div className="grid grid-cols-4 gap-4">
-                <Card/>
+                {arr.map(val => (
+                    <Index
+                        title={val.name}
+                        price={val.price}
+                        image={val.image}
+                        onClick={() => console.log(val.name)}
+                    />
+                ))}
             </div>
         </div>
-    </div>
-  );
+    </div>);
 }
 
 export default App;

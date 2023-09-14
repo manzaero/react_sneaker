@@ -24,22 +24,6 @@ body{
 header {
   border-bottom: 1px solid #EAEAEA;
 }
-.card {
-  border: 2px solid #f8f8f8f8;
-  padding: 28px;
-  width: 210px;
-  border-radius: 20px;
-  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
-
-  &:hover {
-    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.06);
-    transform: translateY(-5px);
-  }
-  .favorite {
-    position: absolute;
-    cursor: pointer;
-  }
-}
 .price {
   color: #BDBDBD;
   font-size: 14px;

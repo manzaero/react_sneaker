@@ -4,7 +4,7 @@ import styles from './Card.module.scss'
 export function Index(props){
     return (
         <div className={styles.card}>
-            <div className="favorite">
+            <div className="favorite cursor-pointer" onClick={props.onToFavorite}>
                 <img src="/img/heart_unliked.svg" alt="Unliked"/>
             </div>
             <img width={133} height={112} src={props.image} alt=""/>
@@ -14,7 +14,7 @@ export function Index(props){
                     <p className='price uppercase uppercase'>Цена</p>
                     <p className='text-sm font-bold'>{props.price}руб.</p>
                 </div>
-                <button onClick={props.onClick}><img src="/img/button.svg" alt=""/></button>
+                <button onClick={props.addToCard}><img src="/img/button.svg" alt=""/></button>
             </div>
         </div>
     )

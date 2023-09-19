@@ -1,22 +1,19 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Index} from "./components/Card";
 import {Header} from "./components/Header";
 import {Drawer} from "./components/Drawer";
 
-const arr = [{
-    name: 'Мужские Кроссовки Nike Blazer Mid Suede', image: './img/sneak/image1.jpg', price: '12 999'
-}, {
-    name: 'Мужские Кроссовки Nike Blazer Suede', image: './img/sneak/image2.jpg', price: '12 231'
-}, {
-    name: 'Мужские Кроссовки Nike Blazer Mid', image: './img/sneak/image3.jpg', price: '14 999'
-}, {
-    name: 'Мужские Кроссовки Nike  Mid Suede', image: './img/sneak/image7.jpg', price: '22 999'
-}]
-
 function App() {
+    const [items, setItems] = useState([])
+    useEffect(() => {
+        fetch('https://650888ed56db83a34d9c7a5d.mockapi.io/items')
+            .then(res => res.json())
+            .then(res => setItems(res))
+    }, [])
+    const [onDrawer, setOnDrawer] = useState(false)
     return (<div className="wrapper">
-        <Drawer/>
-        <Header/>
+        {onDrawer && <Drawer closeCart = {() => setOnDrawer(!onDrawer)}/>}
+        <Header onClickCard = {() => setOnDrawer(!onDrawer)}/>
         <div className="content p-10">
             <div className="flex justify-between">
                 <h1 className='font-bold text-2xl m-0'>Все кроссовки</h1>
@@ -26,7 +23,7 @@ function App() {
                 </div>
             </div>
             <div className="grid grid-cols-4 gap-4">
-                {arr.map(val => (
+                {items.map(val => (
                     <Index
                         title={val.name}
                         price={val.price}

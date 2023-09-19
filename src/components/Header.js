@@ -1,4 +1,5 @@
-export function Header(){
+export function Header(props){
+    console.log(props)
     return (
         <header className='flex justify-between	p-10'>
             <div className="flex items-center">
@@ -9,7 +10,7 @@ export function Header(){
                 </div>
             </div>
             <ul className="flex items-center">
-                <li className='flex'>
+                <li className='flex cursor-pointer' onClick={props.onClickCard}>
                     <img src="/img/cart.svg" alt="" className='mr-2.5'/>
                     <span className='mr-8'>1205 ru.</span>
                 </li>

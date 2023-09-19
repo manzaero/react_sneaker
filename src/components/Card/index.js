@@ -1,7 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from './Card.module.scss'
 
 export function Index(props){
+    const [checked, setChecked] = useState(false);
+    const onClick = () => {
+        setChecked(true)
+    }
+    console.log(checked)
     return (
         <div className={styles.card}>
             <div className="favorite cursor-pointer" onClick={props.onToFavorite}>
@@ -14,7 +19,7 @@ export function Index(props){
                     <p className='price uppercase uppercase'>Цена</p>
                     <p className='text-sm font-bold'>{props.price}руб.</p>
                 </div>
-                <button onClick={props.addToCard}><img src="/img/button.svg" alt=""/></button>
+                <img className='cursor-pointer' onClick={onClick} src={checked ? '/img/checked.svg' : '/img/button.svg'} alt=""/>
             </div>
         </div>
     )

@@ -1,9 +1,11 @@
-export function Drawer(){
+export function Drawer(props){
+    console.log(props)
     return (
-        <div style={{display: 'none'}} className="overlay">
+        <div className="overlay">
             <div className="drawer">
-                <h2 className='text-2xl flex justify-between'>Корзина
-                    <img src="/img/remove_snake.svg" className='removeBtn' alt="Remove"/>
+                <h2 className='text-2xl flex justify-between'>
+                    Корзина
+                    <img onClick={props.closeCart} src="/img/remove_snake.svg" className='removeBtn' alt="Remove"/>
                 </h2>
 
                 <div className="items">

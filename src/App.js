@@ -4,7 +4,12 @@ import {Header} from "./components/Header";
 import {Drawer} from "./components/Drawer";
 
 function App() {
-    const [items, setItems] = useState([])
+    const [items, setItems] = useState([]);
+    const [cartItem, setCartItem] = useState([]);
+    const onAddToCart = (obj) => {
+        setCartItem(prev => [...prev, obj])
+    }
+
     useEffect(() => {
         fetch('https://650888ed56db83a34d9c7a5d.mockapi.io/items')
             .then(res => res.json())
@@ -12,7 +17,9 @@ function App() {
     }, [])
     const [onDrawer, setOnDrawer] = useState(false)
     return (<div className="wrapper">
-        {onDrawer && <Drawer closeCart = {() => setOnDrawer(!onDrawer)}/>}
+        {onDrawer && <Drawer
+            items={cartItem}
+            closeCart = {() => setOnDrawer(!onDrawer)}/>}
         <Header onClickCard = {() => setOnDrawer(!onDrawer)}/>
         <div className="content p-10">
             <div className="flex justify-between">
@@ -29,7 +36,7 @@ function App() {
                         price={val.price}
                         image={val.image}
                         onToFavorite={() => console.log('Добавили в закладки')}
-                        addToCard={() => console.log('Добавили в корзину!')}
+                        addToCard={(obj) => onAddToCart(obj)}
                     />
                 ))}
             </div>

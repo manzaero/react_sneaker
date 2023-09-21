@@ -1,5 +1,4 @@
 export function Header(props){
-    console.log(props)
     return (
         <header className='flex justify-between	p-10'>
             <div className="flex items-center">

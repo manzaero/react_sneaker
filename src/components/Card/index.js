@@ -7,7 +7,6 @@ export function Index({title, image, price, onToFavorite, addToCard}){
         addToCard({title, image, price})
         setChecked(!checked)
     }
-    console.log(checked)
     return (
         <div className={styles.card}>
             <div className="favorite cursor-pointer" onClick={onToFavorite}>

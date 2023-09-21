@@ -33,6 +33,17 @@ header {
   border: 1px solid #F3F3F3;
   border-radius: 10px;
   padding: 0 15px;
+  position: relative;
+  .clear {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 10px;
+    top: 14px;
+    &:hover{
+      cursor: pointer;
+    }
+  }
   input {
     border: 0;
     padding: 13px;

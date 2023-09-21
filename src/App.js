@@ -30,8 +30,9 @@ function App() {
                 </div>
             </div>
             <div className="grid grid-cols-4 gap-4">
-                {items.map(val => (
+                {items.map((val, i) => (
                     <Index
+                        key={i}
                         title={val.name}
                         price={val.price}
                         image={val.image}

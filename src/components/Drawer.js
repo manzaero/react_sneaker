@@ -10,7 +10,7 @@ export function Drawer({ closeCart, onRemove, items = [] }){
                 <div className="cartEmpty flex items-center justify-center flex-col">
                     <img src="/img/cart-null.png" alt="" className="mb-2"/>
                     <h2>Корзина пуста!</h2>
-                    <button className='greenButton'>Вернуться назад<img src="/img/vector.svg" alt="Vector"/></button>
+                    <button className='greenButton'><img src="/img/vector-back.svg" alt="VectorBack"/>Вернуться назад</button>
                 </div>
 
                 <div className="items">

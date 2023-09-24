@@ -115,34 +115,33 @@ h2 {
       }
     }
   }
-
-  .greenButton {
-    position: relative;
-    &:hover {
-      img {
-        transform: translateX(5px);
-      }
-    }
+}
+.greenButton {
+  position: relative;
+  &:hover {
     img {
-      position: absolute;
-      right: 30px;
-      top: 22px;
-      transition: transform 0.2s ease-in-out;
+      transform: translateX(-5px);
     }
   }
-  .greenButton {
-    width: 100%;
-    height: 55px;
-    background: #9DD558;
-    border-radius: 18px;
-    color: #FFFFFF;
-    transition: background 0.2s ease-in-out;
-    &:hover {
-      background-color: lighten(#9DD558, 6%);
-    }
-    &:active {
-      background: darken(#9DD558, 5%);
-    }
+  img {
+    position: absolute;
+    right: 30px;
+    top: 22px;
+    transition: transform 0.2s ease-in-out;
+  }
+}
+.greenButton {
+  width: 100%;
+  height: 55px;
+  background: #9DD558;
+  border-radius: 18px;
+  color: #FFFFFF;
+  transition: background 0.2s ease-in-out;
+  &:hover {
+    background-color: lighten(#9DD558, 6%);
+  }
+  &:active {
+    background: darken(#9DD558, 5%);
+  }
 
-  }
 }

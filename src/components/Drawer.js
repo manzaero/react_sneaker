@@ -1,4 +1,4 @@
-export function Drawer({ closeCart, items }){
+export function Drawer({ closeCart, onRemove, items = [] }){
     return (
         <div className="overlay">
             <div className="drawer">
@@ -6,6 +6,12 @@ export function Drawer({ closeCart, items }){
                     Корзина
                     <img onClick={closeCart} src="/img/remove_snake.svg" className='removeBtn' alt="Remove"/>
                 </h2>
+
+                <div className="cartEmpty flex items-center justify-center flex-col">
+                    <img src="/img/cart-null.png" alt="" className="mb-2"/>
+                    <h2>Корзина пуста!</h2>
+                    <button className='greenButton'>Вернуться назад<img src="/img/vector.svg" alt="Vector"/></button>
+                </div>
 
                 <div className="items">
                     {items.map(item => (
@@ -15,7 +21,7 @@ export function Drawer({ closeCart, items }){
                                 <p>{item.title}</p>
                                 <b>{item.price} руб.</b>
                             </div>
-                            <img onClick={closeCart} src="/img/remove_snake.svg" className='removeBtn' alt="Remove"/>
+                            <img onClick={() => onRemove(item.id)} src="/img/remove_snake.svg" className='removeBtn' alt="Remove"/>
                         </div>
                     ))}
                 </div>

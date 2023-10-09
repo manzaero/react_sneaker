@@ -8,10 +8,6 @@ function App() {
     const [items, setItems] = useState([]);
     const [cartItem, setCartItem] = useState([]);
     const [searchValue, setSearchValue] = useState('')
-    const onAddToCart = (obj) => {
-        axios.post('https://650888ed56db83a34d9c7a5d.mockapi.io/cart', obj)
-        setCartItem(prev => [...prev, obj])
-    }
 
     const onChangeSearchInput = (event) => {
         setSearchValue(event.target.value)
@@ -26,6 +22,11 @@ function App() {
         axios.get('https://650888ed56db83a34d9c7a5d.mockapi.io/cart')
             .then(res => setCartItem(res.data))
     }, [])
+
+    const onAddToCart = (obj) => {
+        axios.post('https://650888ed56db83a34d9c7a5d.mockapi.io/cart', obj)
+        setCartItem(prev => [...prev, obj])
+    }
 
     const [onDrawer, setOnDrawer] = useState(false)
 

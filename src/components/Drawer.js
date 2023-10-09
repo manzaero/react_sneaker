@@ -7,11 +7,6 @@ export function Drawer({ closeCart, onRemove, items = [] }){
                     <img onClick={closeCart} src="/img/remove_snake.svg" className='removeBtn' alt="Remove"/>
                 </h2>
 
-                <div className="cartEmpty flex items-center justify-center flex-col">
-                    <img src="/img/cart-null.png" alt="" className="mb-2"/>
-                    <h2>Корзина пуста!</h2>
-                    <button className='greenButton'><img src="/img/vector-back.svg" alt="VectorBack"/>Вернуться назад</button>
-                </div>
 
                 <div className="items">
                     {items.map(item => (
@@ -25,6 +20,13 @@ export function Drawer({ closeCart, onRemove, items = [] }){
                         </div>
                     ))}
                 </div>
+
+                {/*<div className="cartEmpty flex items-center justify-center flex-col">*/}
+                {/*    <img src="/img/cart-null.png" alt="" className="mb-2"/>*/}
+                {/*    <h2>Корзина пуста!</h2>*/}
+                {/*    <button className='greenButton'><img src="/img/vector-back.svg" alt="VectorBack"/>Вернуться назад</button>*/}
+                {/*</div>*/}
+
                 <div className='totalBlock'>
                     <ul>
                         <li>

@@ -99,6 +99,7 @@ h2 {
     opacity: 1;
   }
 }
+
 .totalBlock {
   ul {
     li {
@@ -107,6 +108,7 @@ h2 {
       position: relative;
       top: -4px;
       margin-bottom: 20px;
+      margin-top: 30px;
       div {
         flex: 1;
         height: 1px;
@@ -131,6 +133,7 @@ h2 {
   }
 }
 .greenButton {
+  top: 50px;
   width: 100%;
   height: 55px;
   background: #9DD558;

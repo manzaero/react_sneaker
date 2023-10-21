@@ -7,10 +7,17 @@ export function Index({title, image, price, onToFavorite, addToCard}){
         addToCard({title, image, price})
         setChecked(!checked)
     }
+    const [isFavorite, setIsFavorite] = useState(false)
+
+    const onLiked = () => {
+        onToFavorite({title, image, price})
+        setIsFavorite(!isFavorite)
+    }
+
     return (
         <div className={styles.card}>
-            <div className="favorite cursor-pointer" onClick={onToFavorite}>
-                <img src="/img/heart_unliked.svg" alt="Unliked"/>
+            <div className="favorite cursor-pointer" onClick={onLiked}>
+                <img onClick={onLiked} src={isFavorite ? '/img/liked.svg' : '/img/unliked.svg'} alt="Unliked"/>
             </div>
             <img width={133} height={112} src={image} alt=""/>
             <p className='text-sm my-3.5'>{title}</p>

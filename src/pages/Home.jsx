@@ -7,6 +7,7 @@ function Home({
                   onAddToCart,
                   onChangeSearchInput,
                   onFavorites,
+                  setSearchValue,
                   clearInput }) {
     return (
         <div className="content p-10">

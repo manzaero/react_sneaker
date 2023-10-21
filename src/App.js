@@ -54,8 +54,8 @@ function App() {
 
     const [onDrawer, setOnDrawer] = useState(false)
 
-    const onRemoveCartItem = (id) => {
-        axios.delete(`https://650888ed56db83a34d9c7a5d.mockapi.io/cart/${id}`)
+    const onRemoveCartItem = async (id) => {
+        await axios.delete(`https://650888ed56db83a34d9c7a5d.mockapi.io/cart/${id}`)
         setCartItem(prev => prev.filter(item => item.id !== id))
     }
 
@@ -71,7 +71,7 @@ function App() {
         <Header onClickCard = {() => setOnDrawer(!onDrawer)}/>
 
             <Routes>
-                <Route path='test' element={<Home/>}>
+                <Route path='/' element={<Home/>}>
                     <Home
                         items={items}
                         searchValue={searchValue}

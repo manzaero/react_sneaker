@@ -4,6 +4,7 @@ import {Drawer} from "./components/Drawer";
 import axios from "axios";
 import {Route, Routes} from "react-router-dom";
 import Home from "./pages/Home";
+import Favorites from "./pages/Favorites";
 
 function App() {
     const [items, setItems] = useState([]);
@@ -81,6 +82,11 @@ function App() {
                         onAddToCart={onAddToCart}
                         clearInput={clearInput}
                     />
+                }>
+
+                </Route>
+                <Route path='/favorites' element={
+                    <Favorites/>
                 }>
 
                 </Route>

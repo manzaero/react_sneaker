@@ -19,7 +19,7 @@ export function Header(props){
                     <span className='mr-8'>1205 ru.</span>
                 </li>
                 <li>
-                    <Link to="/test">
+                    <Link to="/favorites">
                         <img src="/img/heart.svg" alt="Закладки" className='mr-8 cursor-pointer'/>
                     </Link>
                 </li>

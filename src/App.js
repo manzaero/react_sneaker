@@ -71,7 +71,7 @@ function App() {
         <Header onClickCard = {() => setOnDrawer(!onDrawer)}/>
 
             <Routes>
-                <Route path='/' element={<Home/>}>
+                <Route path='/' element={
                     <Home
                         items={items}
                         searchValue={searchValue}
@@ -81,6 +81,8 @@ function App() {
                         onAddToCart={onAddToCart}
                         clearInput={clearInput}
                     />
+                }>
+
                 </Route>
             </Routes>
     </div>);

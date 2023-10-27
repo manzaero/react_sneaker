@@ -1,14 +1,21 @@
-
 import React from "react";
+import {Index} from "../components/Card";
 
-function Favorites() {
+function Favorites({items}) {
     return (
         <div className="content p-10">
             <div className="flex justify-between">
-                <h1>Мои закладки</h1>
+                <h1 className='font-bold text-2xl m-0'>Мои закладки</h1>
             </div>
             <div className="grid grid-cols-4 gap-4">
-                <h3>Тут мои кроссовки</h3>
+                {items.map((item) =>
+                    <Index
+                        key={item.image}
+                        title={item.name}
+                        price={item.price}
+                        image={item.image}
+                        favorite={true}
+                    />)}
             </div>
         </div>
     );

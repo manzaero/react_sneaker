@@ -25,6 +25,8 @@ function App() {
             .then(res => setItems(res.data))
         axios.get('https://650888ed56db83a34d9c7a5d.mockapi.io/cart')
             .then(res => setCartItem(res.data))
+        axios.get('https://6521afeba4199548356d7bb1.mockapi.io/favorites')
+            .then(res => setFavorites(res.data))
     }, [])
 
     const onAddToCart = async (obj) => {
@@ -86,7 +88,7 @@ function App() {
 
                 </Route>
                 <Route path='/favorites' element={
-                    <Favorites/>
+                    <Favorites items={favorites}/>
                 }>
 
                 </Route>

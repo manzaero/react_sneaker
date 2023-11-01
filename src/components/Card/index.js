@@ -1,16 +1,16 @@
 import React, {useState} from "react";
 import styles from './Card.module.scss'
 
-export function Index({title, image, price, onToFavorite, addToCard, favorite = false}){
+export function Index({title, image, price, onFavorites, addToCard, favorite = false}){
     const [checked, setChecked] = useState(false);
+    const [isFavorite, setIsFavorite] = useState(favorite)
     const onClick = () => {
         addToCard({title, image, price})
         setChecked(!checked)
     }
-    const [isFavorite, setIsFavorite] = useState(favorite)
 
     const onLiked = () => {
-        onToFavorite({title, image, price})
+        onFavorites({title, image, price})
         setIsFavorite(!isFavorite)
     }
 

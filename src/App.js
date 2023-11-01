@@ -42,17 +42,9 @@ function App() {
         }
     }
 
-    const onFavorites = async (obj) => {
-        try {
-            if (favorites.find(i => i.id === obj.id)){
-                axios.delete(`https://6521afeba4199548356d7bb1.mockapi.io/favorites/${obj.id}`)
-            } else {
-                await axios.post('https://6521afeba4199548356d7bb1.mockapi.io/favorites', obj)
-                setFavorites(prev => [...prev, obj])
-            }
-        } catch (e) {
-            alert('не добавилось в избранное')
-        }
+    const onAddFavorites = async (obj) => {
+        await axios.post('https://6521afeba4199548356d7bb1.mockapi.io/favorites', obj)
+        setFavorites(prev => [...prev, obj])
     }
 
     const [onDrawer, setOnDrawer] = useState(false)
@@ -80,7 +72,7 @@ function App() {
                         searchValue={searchValue}
                         setSearchValue={setSearchValue}
                         onChangeSearchInput={onChangeSearchInput}
-                        onFavorites={onFavorites}
+                        onFavorite={onAddFavorites}
                         onAddToCart={onAddToCart}
                         clearInput={clearInput}
                     />
@@ -88,7 +80,7 @@ function App() {
 
                 </Route>
                 <Route path='/favorites' element={
-                    <Favorites items={favorites}/>
+                    <Favorites items={favorites} onAddFavorites={(obj) => onAddFavorites(obj)}/>
                 }>
 
                 </Route>

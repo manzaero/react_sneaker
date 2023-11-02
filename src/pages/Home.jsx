@@ -6,8 +6,7 @@ function Home({
                   searchValue,
                   onAddToCart,
                   onChangeSearchInput,
-                  onFavorite,
-                  setSearchValue,
+                  onAddFavorites,
                   clearInput }) {
     return (
         <div className="content p-10">
@@ -16,7 +15,7 @@ function Home({
                 <div className="search-block flex">
                     <img src="/img/search.svg" alt="Search"/>
                     {searchValue && <img
-                        onClick={clearInput}
+                        onClick={() => clearInput()}
                         src="/img/remove_snake.svg"
                         className='clear'
                         alt="clear"/>}
@@ -30,9 +29,10 @@ function Home({
                         <Index
                             key={item.image}
                             title={item.name}
+                            id={item.id}
                             price={item.price}
                             image={item.image}
-                            onFavorites={(obj) => onFavorite(obj)}
+                            onFavorites={(obj) => onAddFavorites(obj)}
                             addToCard={(obj) => onAddToCart(obj)}
                         />
                     ))}

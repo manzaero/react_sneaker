@@ -14,7 +14,7 @@ export function Header(props){
                 </div>
             </Link>
             <ul className="flex items-center">
-                <li className='flex cursor-pointer' onClick={props.onClickCard} alt='Корзина'>
+                <li className='flex cursor-pointer' onClick={() => props.onClickCard()} alt='Корзина'>
                     <img src="/img/cart.svg" alt="" className='mr-2.5'/>
                     <span className='mr-8'>1205 ru.</span>
                 </li>

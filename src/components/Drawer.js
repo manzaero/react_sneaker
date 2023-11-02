@@ -4,7 +4,7 @@ export function Drawer({ closeCart, onRemove, items = [] }){
             <div className="drawer">
                 <h2 className='text-2xl flex justify-between'>
                     Корзина
-                    <img onClick={closeCart} src="/img/remove_snake.svg" className='removeBtn' alt="Remove"/>
+                    <img onClick={() => closeCart()} src="/img/remove_snake.svg" className='removeBtn' alt="Remove"/>
                 </h2>
 
                 {
@@ -43,7 +43,7 @@ export function Drawer({ closeCart, onRemove, items = [] }){
                         <div className="cartEmpty flex items-center justify-center flex-col">
                             <img src="/img/cart-null.png" alt="" className="mb-2"/>
                             <h2>Корзина пуста!</h2>
-                            <button onClick={closeCart} className='greenButton'><img src="/img/vector-back.svg" alt="VectorBack"/>Вернуться назад</button>
+                            <button onClick={() => closeCart()} className='greenButton'><img src="/img/vector-back.svg" alt="VectorBack"/>Вернуться назад</button>
                         </div>
                 }
 

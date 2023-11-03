@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 
 
-export function Header(props){
+export function Header({onClickCard, sumConst}){
     return (
         <header className='flex justify-between	p-10'>
             <Link to="/">
@@ -14,9 +14,9 @@ export function Header(props){
                 </div>
             </Link>
             <ul className="flex items-center">
-                <li className='flex cursor-pointer' onClick={() => props.onClickCard()} alt='Корзина'>
+                <li className='flex cursor-pointer' onClick={() => onClickCard()} alt='Корзина'>
                     <img src="/img/cart.svg" alt="" className='mr-2.5'/>
-                    <span className='mr-8'>1205 ru.</span>
+                    <span className='mr-8'>{sumConst} ru.</span>
                 </li>
                 <li>
                     <Link to="/favorites">

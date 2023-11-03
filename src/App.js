@@ -11,6 +11,8 @@ function App() {
     const [cartItem, setCartItem] = useState([]);
     const [favorites, setFavorites] = useState([]);
     const [searchValue, setSearchValue] = useState('')
+    const [sum, setSum] = useState(0)
+    const [onDrawer, setOnDrawer] = useState(false)
 
     const onChangeSearchInput = (event) => {
         setSearchValue(event.target.value)
@@ -20,13 +22,14 @@ function App() {
     }
 
 
+
     useEffect(() => {
         axios.get('https://650888ed56db83a34d9c7a5d.mockapi.io/items')
-            .then(res => setItems(res.data))
+            .then(res => setItems(res.data));
         axios.get('https://650888ed56db83a34d9c7a5d.mockapi.io/cart')
-            .then(res => setCartItem(res.data))
+            .then(res => setCartItem(res.data));
         axios.get('https://6521afeba4199548356d7bb1.mockapi.io/favorites')
-            .then(res => setFavorites(res.data))
+            .then(res => setFavorites(res.data));
     }, [])
 
     const onAddToCart = async (obj) => {
@@ -40,6 +43,11 @@ function App() {
         } catch (e) {
             alert('пустая корзина')
         }
+    }
+
+    const sumResult = () => {
+        console.log(cartItem)
+        setSum(cartItem.reduce((a, b) => a + b))
     }
 
     const onAddFavorites = async (obj) => {
@@ -56,8 +64,6 @@ function App() {
         }
     }
 
-    const [onDrawer, setOnDrawer] = useState(false)
-
     const onRemoveCartItem = async (id) => {
         await axios.delete(`https://650888ed56db83a34d9c7a5d.mockapi.io/cart/${id}`)
         setCartItem(prev => prev.filter(item => item.id !== id))
@@ -72,7 +78,7 @@ function App() {
             closeCart = {() => setOnDrawer(!onDrawer)}/>
         }
 
-        <Header onClickCard = {() => setOnDrawer(!onDrawer)}/>
+        <Header onClickCard = {() => setOnDrawer(!onDrawer)} sumConst = {sum}/>
 
             <Routes>
                 <Route path='/' element={

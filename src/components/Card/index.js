@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 import styles from './Card.module.scss'
 
-export function Index({id, title, image, price, onFavorites, addToCard, favorite = false}){
-    const [checked, setChecked] = useState(false);
+export function Index({id, title, image, price, onFavorites, addToCard, favorite = false, added = false}){
+    const [isAdded, setIsAdded] = useState(added);
+
     const [isFavorite, setIsFavorite] = useState(favorite);
     const onClick = () => {
         addToCard({id, title, image, price})
-        setChecked(!checked)
+        setIsAdded(!isAdded)
     }
 
     const onLiked = () => {
@@ -26,7 +27,7 @@ export function Index({id, title, image, price, onFavorites, addToCard, favorite
                     <p className='price uppercase uppercase'>Цена</p>
                     <p className='text-sm font-bold'>{price}руб.</p>
                 </div>
-                <img className='cursor-pointer' onClick={() => onClick()} src={checked ? '/img/checked.svg' : '/img/button.svg'} alt=""/>
+                <img className='cursor-pointer' onClick={() => onClick()} src={isAdded ? '/img/checked.svg' : '/img/button.svg'} alt=""/>
             </div>
         </div>
     )

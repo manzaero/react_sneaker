@@ -3,6 +3,7 @@ import React from "react";
 
 function Home({
                   items,
+                  cartItem,
                   searchValue,
                   onAddToCart,
                   onChangeSearchInput,
@@ -27,6 +28,7 @@ function Home({
                     .filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()))
                     .map((item) => (
                         <Index
+                            added={cartItem.some(obj => obj.id === item.id)}
                             key={item.image}
                             title={item.name}
                             id={item.id}

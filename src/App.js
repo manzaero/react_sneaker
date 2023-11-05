@@ -34,13 +34,14 @@ function App() {
 
     const onAddToCart = async (obj) => {
         try {
-            if (cartItem.find( (item) => item.id === obj.id)){
+            if (cartItem.find( (item) => Number(item.id)  === Number(obj.id))){
+                await axios.delete(`https://650888ed56db83a34d9c7a5d.mockapi.io/cart/${obj.id}`)
                 setCartItem((prev) => prev.filter((item) => item.title !== obj.title))
             } else {
                 await axios.post('https://650888ed56db83a34d9c7a5d.mockapi.io/cart', obj)
                 setCartItem(prev => [...prev, obj])
             }
-        } catch (e) {
+        } catch (error) {
             alert('пустая корзина')
         }
     }
@@ -83,6 +84,7 @@ function App() {
             <Routes>
                 <Route path='/' element={
                     <Home
+                        cartItem={cartItem}
                         items={items}
                         searchValue={searchValue}
                         setSearchValue={setSearchValue}

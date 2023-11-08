@@ -11,8 +11,8 @@ function App() {
     const [cartItem, setCartItem] = useState([]);
     const [favorites, setFavorites] = useState([]);
     const [searchValue, setSearchValue] = useState('')
-    const [sum, setSum] = useState(0)
     const [onDrawer, setOnDrawer] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
 
     const onChangeSearchInput = (event) => {
         setSearchValue(event.target.value)
@@ -24,14 +24,19 @@ function App() {
 
 
     useEffect(() => {
-        axios.get('https://650888ed56db83a34d9c7a5d.mockapi.io/items')
-            .then(res => setItems(res.data));
-        axios.get('https://650888ed56db83a34d9c7a5d.mockapi.io/cart')
-            .then(res => setCartItem(res.data));
-        axios.get('https://6521afeba4199548356d7bb1.mockapi.io/favorites')
-            .then(res => setFavorites(res.data));
-    }, [])
+        async function resData(){
+            const cartResponse = await axios.get('https://650888ed56db83a34d9c7a5d.mockapi.io/cart')
+            const favoriteResponse = await axios.get('https://6521afeba4199548356d7bb1.mockapi.io/favorites')
+            const itemsResponse = await axios.get('https://650888ed56db83a34d9c7a5d.mockapi.io/items')
 
+
+            setIsLoading(false)
+            setCartItem(cartResponse.data)
+            setFavorites(favoriteResponse.data)
+            setItems(itemsResponse.data)
+        }
+        resData()
+    }, [])
     const onAddToCart = async (obj) => {
         try {
             if (cartItem.find( (item) => Number(item.id)  === Number(obj.id))){
@@ -46,10 +51,7 @@ function App() {
         }
     }
 
-    const sumResult = () => {
-        console.log(cartItem)
-        setSum(cartItem.reduce((a, b) => a + b))
-    }
+
 
     const onAddFavorites = async (obj) => {
         try {
@@ -79,7 +81,7 @@ function App() {
             closeCart = {() => setOnDrawer(!onDrawer)}/>
         }
 
-        <Header onClickCard = {() => setOnDrawer(!onDrawer)} sumConst = {sum}/>
+        <Header onClickCard = {() => setOnDrawer(!onDrawer)}/>
 
             <Routes>
                 <Route path='/' element={
@@ -92,6 +94,7 @@ function App() {
                         onAddFavorites={onAddFavorites}
                         onAddToCart={onAddToCart}
                         clearInput={clearInput}
+                        isLoading={isLoading}
                     />
                 }>
 

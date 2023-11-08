@@ -8,7 +8,26 @@ function Home({
                   onAddToCart,
                   onChangeSearchInput,
                   onAddFavorites,
-                  clearInput }) {
+                  clearInput,
+                  isLoading
+}) {
+
+    const renderItems = () => {
+        let filteredItems = items.filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()))
+        return (isLoading
+            ?  [...Array(8)]
+            : filteredItems)
+            .map((item, index) => (
+                <Index
+                    key={index}
+                    added={cartItem.some(obj => Number(obj.id) === Number(item.id))}
+                    {...item}
+                    onFavorites={(obj) => onAddFavorites(obj)}
+                    addToCard={(obj) => onAddToCart(obj)}
+                    loading={isLoading}
+                />
+            ))
+    }
     return (
         <div className="content p-10">
             <div className="flex justify-between">
@@ -24,20 +43,7 @@ function Home({
                 </div>
             </div>
             <div className="grid grid-cols-4 gap-4">
-                {items
-                    .filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()))
-                    .map((item) => (
-                        <Index
-                            added={cartItem.some(obj => obj.id === item.id)}
-                            key={item.image}
-                            title={item.name}
-                            id={item.id}
-                            price={item.price}
-                            image={item.image}
-                            onFavorites={(obj) => onAddFavorites(obj)}
-                            addToCard={(obj) => onAddToCart(obj)}
-                        />
-                    ))}
+                {renderItems()}
             </div>
         </div>
     );

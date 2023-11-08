@@ -11,9 +11,7 @@ function Favorites({items, onAddFavorites}) {
                 {items.map((item, index) =>
                     <Index
                         key={index}
-                        title={item.name}
-                        price={item.price}
-                        image={item.image}
+                        {...item}
                         id={item.id}
                         favorite={true}
                         onFavorites={onAddFavorites}

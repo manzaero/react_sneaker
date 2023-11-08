@@ -4,7 +4,7 @@ import ContentLoader from 'react-content-loader'
 
 export function Index({
                           id,
-                          title,
+                          name,
                           image,
                           price,
                           onFavorites,
@@ -18,12 +18,12 @@ export function Index({
 
     const [isFavorite, setIsFavorite] = useState(favorite);
     const onClick = () => {
-        addToCard({id, title, image, price})
+        addToCard({id, name, image, price})
         setIsAdded(!isAdded)
     }
 
     const onLiked = () => {
-        onFavorites({id, title, image, price})
+        onFavorites({id, name, image, price})
         setIsFavorite(!isFavorite)
     }
 
@@ -51,7 +51,7 @@ export function Index({
                         <img onClick={() => onLiked()} src={isFavorite ? '/img/liked.svg' : '/img/unliked.svg'} alt="Unliked"/>
                     </div>
                         <img width='100%' height={135} src={image} alt=""/>
-                        <p className='text-sm my-3.5'>{title}</p>
+                        <p className='text-sm my-3.5'>{name}</p>
                     <div className='flex justify-between'>
                         <div className='flex flex-col'>
                             <p className='price uppercase uppercase'>Цена</p>

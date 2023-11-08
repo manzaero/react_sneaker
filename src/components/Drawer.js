@@ -15,7 +15,7 @@ export function Drawer({ closeCart, onRemove, items = [] }){
                                 <div key={index} className='cartItem border rounded-lg flex p-4 text items-center'>
                                     <img width={70} height={70} className='mr-5' src={item.image} alt=""/>
                                     <div className='mr-3 text-sm'>
-                                        <p>{item.title}</p>
+                                        <p>{item.name}</p>
                                         <b>{item.price} руб.</b>
                                     </div>
                                     <img onClick={() => onRemove(item.id)} src="/img/remove_snake.svg" className='removeBtn' alt="Remove"/>

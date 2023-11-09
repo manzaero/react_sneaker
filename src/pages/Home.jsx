@@ -17,10 +17,11 @@ function Home({
         return (isLoading
             ?  [...Array(8)]
             : items.filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase())))
-            .map((item) => (
+            .map((item, index) => (
                 <Index
                     added={cartItem.some(obj => Number(obj.id) === Number(item.id))}
                     {...item}
+                    key={index}
                     onFavorites={(obj) => onAddFavorites(obj)}
                     addToCard={(obj) => onAddToCart(obj)}
                     loading={isLoading}

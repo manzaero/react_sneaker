@@ -1,7 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Index} from "../components/Card";
+import AppContext from "../context";
 
-function Favorites({items, onAddFavorites}) {
+function Favorites({ onAddFavorites}) {
+
+    const { favorites } = useContext(AppContext)
+
     return (
         <div className="content p-10">
             <div className="flex justify-between">
@@ -11,12 +15,13 @@ function Favorites({items, onAddFavorites}) {
                 <h3>Тут мои кроссовки</h3>
             </div>
             <div className="grid grid-cols-4 gap-4">
-                {items.map((item, i) =>
+                {favorites.map((item, i) =>
                     <Index
                         key={i}
                         title={item.name}
                         price={item.price}
                         image={item.image}
+                        id={item.id}
                         favorite={true}
                         onFavorites={onAddFavorites}
                     />)}

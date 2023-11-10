@@ -10,11 +10,13 @@ export function Index({
                           onFavorites,
                           addToCard,
                           favorite = false,
-                          added = false,
+                          added = true,
                           loading
 }){
 
     const [isAdded, setIsAdded] = useState(added);
+
+    console.log(added)
 
     const [isFavorite, setIsFavorite] = useState(favorite);
     const onClick = () => {

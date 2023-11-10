@@ -15,14 +15,16 @@ function App() {
     const [onDrawer, setOnDrawer] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
 
+
+    console.log(cartItem)
+
     const onChangeSearchInput = (event) => {
         setSearchValue(event.target.value)
     }
+
     const clearInput = () => {
         setSearchValue('')
     }
-
-
 
     useEffect(() => {
         async function resData(){
@@ -38,6 +40,7 @@ function App() {
         }
         resData()
     }, [])
+
     const onAddToCart = async (obj) => {
         try {
             if (cartItem.find( (item) => Number(item.id)  === Number(obj.id))){
@@ -52,11 +55,9 @@ function App() {
         }
     }
 
-
-
     const onAddFavorites = async (obj) => {
         try {
-            if (favorites.find((item) => item.id === obj.id)){
+            if (favorites.find((item) => +item.id === +obj.id)){
                 await axios.delete(`https://6521afeba4199548356d7bb1.mockapi.io/favorites/${obj.id}`)
                 setFavorites(prev => prev.filter((item) => item.id !== obj.id))
             } else {
@@ -73,8 +74,12 @@ function App() {
         setCartItem(prev => prev.filter(item => item.id !== id))
     }
 
+    const isItemAdded = (id) => {
+        return cartItem.some(obj => Number(obj.id) === Number(id))
+    }
+
     return (
-        <AppContext.Provider value={{ items, cartItem, favorites, onAddFavorites }}>
+        <AppContext.Provider value={{ items, cartItem, favorites, onAddFavorites, isItemAdded }}>
             <div className="wrapper">
 
                 {onDrawer && <Drawer
@@ -103,7 +108,7 @@ function App() {
 
                     </Route>
                     <Route path='/favorites' element={
-                        <Favorites onAddFavorites={onAddFavorites} items={favorites}/>}>
+                        <Favorites onAddFavorites={onAddFavorites}/>}>
                     </Route>
                 </Routes>
             </div>

@@ -16,12 +16,13 @@ export function Index({
 
     const {isItemAdded} = useContext(AppContext)
     const [isFavorite, setIsFavorite] = useState(favorite);
+    const obj = {id, parentId: id, name, image, price}
     const onClick = () => {
-        addToCard({id, name, image, price})
+        addToCard(obj)
     }
 
     const onLiked = () => {
-        onFavorites({id, name, image, price})
+        onFavorites(obj)
         setIsFavorite(!isFavorite)
     }
 

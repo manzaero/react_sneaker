@@ -83,7 +83,7 @@ function App() {
     }
 
     const isItemAdded = (id) => {
-        return cartItem.some(obj => Number(obj.id) === Number(id))
+        return cartItem.some(obj => Number(obj.parentId) === Number(id))
     }
 
     const closeCart = () => setOnDrawer(!onDrawer)

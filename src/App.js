@@ -6,17 +6,18 @@ import {Route, Routes} from "react-router-dom";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import AppContext from "./context";
+import Orders from "./pages/Orders";
 
 function App() {
     const [items, setItems] = useState([]);
     const [cartItem, setCartItem] = useState([]);
     const [favorites, setFavorites] = useState([]);
     const [searchValue, setSearchValue] = useState('')
-    const [onDrawer, setOnDrawer] = useState(false)
+    const [onDrawer, setOnDrawer] = useState(true)
     const [isLoading, setIsLoading] = useState(true)
 
 
-    console.log(cartItem)
+    const totalPrice = cartItem.reduce((sum, obj) => parseInt(obj.price) + sum, 0)
 
     const onChangeSearchInput = (event) => {
         setSearchValue(event.target.value)
@@ -28,15 +29,20 @@ function App() {
 
     useEffect(() => {
         async function resData(){
-            const cartResponse = await axios.get('https://650888ed56db83a34d9c7a5d.mockapi.io/cart')
-            const favoriteResponse = await axios.get('https://6521afeba4199548356d7bb1.mockapi.io/favorites')
-            const itemsResponse = await axios.get('https://650888ed56db83a34d9c7a5d.mockapi.io/items')
+            try {
+                const cartResponse = await axios.get('https://650888ed56db83a34d9c7a5d.mockapi.io/cart')
+                const favoriteResponse = await axios.get('https://6521afeba4199548356d7bb1.mockapi.io/favorites')
+                const itemsResponse = await axios.get('https://650888ed56db83a34d9c7a5d.mockapi.io/items')
 
 
-            setIsLoading(false)
-            setCartItem(cartResponse.data)
-            setFavorites(favoriteResponse.data)
-            setItems(itemsResponse.data)
+                setIsLoading(false)
+                setCartItem(cartResponse.data)
+                setFavorites(favoriteResponse.data)
+                setItems(itemsResponse.data)
+            } catch (error) {
+                alert('Ошибка при запросе данных!')
+                console.error(error)
+            }
         }
         resData()
     }, [])
@@ -51,7 +57,8 @@ function App() {
                 setCartItem(prev => [...prev, obj])
             }
         } catch (error) {
-            alert('пустая корзина')
+            alert('Ошибка при добавлении в корзину')
+            console.error(error)
         }
     }
 
@@ -65,7 +72,8 @@ function App() {
                 setFavorites(prev => [...prev, data])
             }
         }   catch (error) {
-            alert('Не удаловь добавить в избранное!')
+            alert('Не удалось добавить в избранное!')
+            console.error(error)
         }
     }
 
@@ -78,16 +86,18 @@ function App() {
         return cartItem.some(obj => Number(obj.id) === Number(id))
     }
 
+    const closeCart = () => setOnDrawer(!onDrawer)
+
     return (
-        <AppContext.Provider value={{ items, cartItem, favorites, onAddFavorites, isItemAdded }}>
+        <AppContext.Provider value={{ items, cartItem, favorites, onAddFavorites, isItemAdded, closeCart, setCartItem, totalPrice, onAddToCart }}>
             <div className="wrapper">
 
-                {onDrawer && <Drawer
+                <Drawer
                     key={cartItem.title}
                     onRemove={onRemoveCartItem}
                     items={cartItem}
-                    closeCart = {() => setOnDrawer(!onDrawer)}/>
-                }
+                    opened={onDrawer}
+                />
 
                 <Header onClickCard = {() => setOnDrawer(!onDrawer)}/>
 
@@ -108,7 +118,13 @@ function App() {
 
                     </Route>
                     <Route path='/favorites' element={
-                        <Favorites onAddFavorites={onAddFavorites}/>}>
+                        <Favorites onAddFavorites={onAddFavorites}/>
+                    }>
+                    </Route>
+                    <Route path='/orders' element={
+                        <Orders/>
+                    }>
+
                     </Route>
                 </Routes>
             </div>

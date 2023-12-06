@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import styles from './Card.module.scss'
 import ContentLoader from 'react-content-loader'
+import AppContext from "../../context";
 
 export function Index({
                           id,
@@ -10,18 +11,13 @@ export function Index({
                           onFavorites,
                           addToCard,
                           favorite = false,
-                          added = true,
                           loading
 }){
 
-    const [isAdded, setIsAdded] = useState(added);
-
-    console.log(added)
-
+    const {isItemAdded} = useContext(AppContext)
     const [isFavorite, setIsFavorite] = useState(favorite);
     const onClick = () => {
         addToCard({id, name, image, price})
-        setIsAdded(!isAdded)
     }
 
     const onLiked = () => {
@@ -50,7 +46,8 @@ export function Index({
                     </ContentLoader> :
                     <>
                     <div className="favorite cursor-pointer">
-                        <img onClick={() => onLiked()} src={isFavorite ? '/img/liked.svg' : '/img/unliked.svg'} alt="Unliked"/>
+                        {onFavorites && <img onClick={() => onLiked()} src={isFavorite ? '/img/liked.svg' : '/img/unliked.svg'}
+                              alt="Unliked"/>}
                     </div>
                         <img width='100%' height={135} src={image} alt=""/>
                         <p className='text-sm my-3.5'>{name}</p>
@@ -59,7 +56,8 @@ export function Index({
                             <p className='price uppercase uppercase'>Цена</p>
                             <p className='text-sm font-bold'>{price}руб.</p>
                         </div>
-                        <img className='cursor-pointer' onClick={() => onClick()} src={isAdded ? '/img/checked.svg' : '/img/button.svg'} alt=""/>
+                        {addToCard && <img className='cursor-pointer' onClick={() => onClick()}
+                              src={isItemAdded(id) ? '/img/checked.svg' : '/img/button.svg'} alt=""/>}
                     </div>
                     </>
             }

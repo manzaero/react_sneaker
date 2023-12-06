@@ -1,7 +1,11 @@
 import {Link} from "react-router-dom";
+import {useCart} from "../hooks/Cart";
 
 
 export function Header({onClickCard}){
+
+    const {totalPrice} = useCart()
+
     return (
         <header className='flex justify-between	p-10'>
             <Link to="/">
@@ -16,7 +20,7 @@ export function Header({onClickCard}){
             <ul className="flex items-center">
                 <li className='flex cursor-pointer' onClick={() => onClickCard()} alt='Корзина'>
                     <img src="/img/cart.svg" alt="" className='mr-2.5'/>
-                    <span className='mr-8'>1205 ru.</span>
+                    <span className='mr-8'>{totalPrice} ru.</span>
                 </li>
                 <li>
                     <Link to="/favorites">
@@ -24,7 +28,9 @@ export function Header({onClickCard}){
                     </Link>
                 </li>
                 <li>
-                    <img src="/img/user.svg" alt="Пользователь" className='cursor-pointer'/>
+                    <Link to='/orders'>
+                        <img src="/img/user.svg" alt="Пользователь" className='cursor-pointer'/>
+                    </Link>
                 </li>
             </ul>
         </header>

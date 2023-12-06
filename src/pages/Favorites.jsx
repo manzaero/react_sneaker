@@ -2,9 +2,9 @@ import React, {useContext} from "react";
 import {Index} from "../components/Card";
 import AppContext from "../context";
 
-function Favorites({ onAddFavorites}) {
+function Favorites() {
 
-    const { favorites } = useContext(AppContext)
+    const { favorites, onAddFavorites, onAddToCart } = useContext(AppContext)
 
     return (
         <div className="content p-10">
@@ -18,10 +18,8 @@ function Favorites({ onAddFavorites}) {
                 {favorites.map((item, i) =>
                     <Index
                         key={i}
-                        title={item.name}
-                        price={item.price}
-                        image={item.image}
-                        id={item.id}
+                        {...item}
+                        addToCard={obj => onAddToCart(obj)}
                         favorite={true}
                         onFavorites={onAddFavorites}
                     />)}

@@ -24,7 +24,7 @@ function Orders() {
     return (
         <div className="content p-10">
             <div className="flex justify-between">
-                <h1 className='font-bold text-2xl m-0'>Выбранный товар</h1>
+                <h1 className='font-bold text-2xl m-0'>Приобретённый товар</h1>
             </div>
             <div className="grid grid-cols-4 gap-4">
                 {

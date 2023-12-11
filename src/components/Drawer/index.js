@@ -38,7 +38,7 @@ export function Drawer({ onRemove = '', items = [], opened }){
             <div className={styles.drawer}>
                 <h2 className='text-2xl flex justify-between'>
                     Корзина
-                    <img onClick={() => closeCart()} src="/img/remove_snake.svg" className='removeBtn' alt="Remove"/>
+                    <img onClick={() => closeCart()} src="img/remove_snake.svg" className='removeBtn' alt="Remove"/>
                 </h2>
 
                 {
@@ -52,7 +52,7 @@ export function Drawer({ onRemove = '', items = [], opened }){
                                             <p>{item.name}</p>
                                             <b>{item.price} руб.</b>
                                         </div>
-                                        <img onClick={() => onRemove(item.id)} src="/img/remove_snake.svg" className='removeBtn' alt="Remove"/>
+                                        <img onClick={() => onRemove(item.id)} src="img/remove_snake.svg" className='removeBtn' alt="Remove"/>
                                     </div>
                                 ))}
                             </div>
@@ -72,11 +72,11 @@ export function Drawer({ onRemove = '', items = [], opened }){
                                 <button
                                     disabled={isLoading}
                                     onClick={ () => completeIsShop() }
-                                    className='greenButton'>Оформить заказ <img src="/img/vector.svg" alt="Vector"/></button>
+                                    className='greenButton'>Оформить заказ <img src="img/vector.svg" alt="Vector"/></button>
                             </div>
                         </div>
                         :
-                        <Info title={isComplete ? `Заказ № - ${orderId} оформлен` : "Корзина пуста" } description={isComplete ? "Вернуться в магазин" : "Добавьте товар в корзину"  } image={isComplete ? "/img/issued.png" : "/img/cart-null.png" }/>
+                        <Info title={isComplete ? `Заказ № - ${orderId} оформлен` : "Корзина пуста" } description={isComplete ? "Вернуться в магазин" : "Добавьте товар в корзину"  } image={isComplete ? "img/issued.png" : "img/cart-null.png" }/>
                 }
 
             </div>

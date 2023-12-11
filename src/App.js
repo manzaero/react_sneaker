@@ -117,7 +117,7 @@ function App() {
                 <Header onClickCard = {() => setOnDrawer(!onDrawer)}/>
 
                 <Routes>
-                    <Route path='/' element={
+                    <Route path='' element={
                         <Home
                             cartItem={cartItem}
                             items={items}
@@ -132,11 +132,11 @@ function App() {
                     }>
 
                     </Route>
-                    <Route path='/favorites' element={
+                    <Route path='favorites' element={
                         <Favorites onAddFavorites={onAddFavorites}/>
                     }>
                     </Route>
-                    <Route path='/orders' element={
+                    <Route path='orders' element={
                         <Orders/>
                     }>
 

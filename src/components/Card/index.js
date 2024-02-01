@@ -47,7 +47,7 @@ export function Index({
                     </ContentLoader> :
                     <>
                     <div className="favorite cursor-pointer">
-                        {onFavorites && <img onClick={() => onLiked()} src={isFavorite ? 'img/liked.svg' : 'img/unliked.svg'}
+                        {onFavorites && <img onClick={() => onLiked()} src={isFavorite ? 'react_sneaker/img/liked.svg' : 'react_sneaker/img/unliked.svg'}
                               alt="Unliked"/>}
                     </div>
                         <img width='100%' height={135} src={image} alt=""/>
@@ -58,7 +58,7 @@ export function Index({
                             <p className='text-sm font-bold'>{price}руб.</p>
                         </div>
                         {addToCard && <img className='cursor-pointer' onClick={() => onClick()}
-                              src={isItemAdded(id) ? 'img/checked.svg' : 'img/button.svg'} alt=""/>}
+                              src={isItemAdded(id) ? 'react_sneaker/img/checked.svg' : 'react_sneaker/img/button.svg'} alt=""/>}
                     </div>
                     </>
             }

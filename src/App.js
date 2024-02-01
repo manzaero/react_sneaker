@@ -117,7 +117,7 @@ function App() {
                 <Header onClickCard = {() => setOnDrawer(!onDrawer)}/>
 
                 <Routes>
-                    <Route path='' element={
+                    <Route path='/' element={
                         <Home
                             cartItem={cartItem}
                             items={items}

@@ -19,17 +19,17 @@ export function Header({onClickCard}){
             </Link>
             <ul className="flex items-center">
                 <li className='flex cursor-pointer' onClick={() => onClickCard()} alt='Корзина'>
-                    <img src="react_sneaker/tree/gh-pages/img//cart.svg" alt="" className='mr-2.5'/>
+                    <img src="react_sneaker/img//cart.svg" alt="" className='mr-2.5'/>
                     <span className='mr-8'>{totalPrice} ru.</span>
                 </li>
                 <li>
                     <Link to="/favorites">
-                        <img src="react_sneaker/tree/gh-pages/img/img/heart.svg" alt="Закладки" className='mr-8 cursor-pointer'/>
+                        <img src="react_sneaker/img/heart.svg" alt="Закладки" className='mr-8 cursor-pointer'/>
                     </Link>
                 </li>
                 <li>
                     <Link to='/orders'>
-                        <img src="react_sneaker/tree/gh-pages/img/img/user.svg" alt="Пользователь" className='cursor-pointer'/>
+                        <img src="react_sneaker/img/user.svg" alt="Пользователь" className='cursor-pointer'/>
                     </Link>
                 </li>
             </ul>

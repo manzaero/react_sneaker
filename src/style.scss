@@ -19,11 +19,17 @@ body{
   border-radius: 20px;
   max-width: 1080px;
   margin: 85px auto;
+  .wrap-cart {
+    margin-right: 14px;
+  }
 }
 
 header {
+  padding: 40px;
   border-bottom: 1px solid #EAEAEA;
 }
+
+
 .price {
   color: #BDBDBD;
   font-size: 14px;
@@ -140,5 +146,44 @@ h2 {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@media (max-width: 1120px) {
+  .wrapper{
+    margin: 30px 30px;
+  }
+  .wrap-cart {
+    margin-right: 10px;
+  }
+  header {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 720px){
+  .wrap-sneakers{
+    display: none;
+  }
+}
+
+@media (max-width: 540px){
+  .wrap-shop{
+    display: none;
+  }
+}
+
+@media (max-width: 368px){
+  .wrap-price{
+    display: none;
+  }
+  .wrap-cart {
+    margin-right: 12px;
+  }
+  .wrap-heart {
+    margin-left: 12px;
+  }
+  header {
+    padding: 12px;
   }
 }

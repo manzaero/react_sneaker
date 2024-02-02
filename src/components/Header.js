@@ -7,24 +7,24 @@ export function Header({onClickCard}){
     const {totalPrice} = useCart()
 
     return (
-        <header className='flex justify-between	p-10'>
+        <header className='flex justify-between '>
             <Link to="/">
                 <div className="flex items-center">
                         <img src='react_sneaker/img/logo.png' alt='Logo' className='mr-4'/>
                     <div>
-                        <h3 className='mb-0 text-xl font-bold uppercase'>Sneakers shop</h3>
-                        <p className='mt-0'>Магазин обуви</p>
+                        <h3 className='mb-0 text-xl font-bold uppercase wrap-sneakers'>Sneakers shop</h3>
+                        <p className='mt-0 wrap-shop'>Магазин обуви</p>
                     </div>
                 </div>
             </Link>
             <ul className="flex items-center">
                 <li className='flex cursor-pointer' onClick={() => onClickCard()} alt='Корзина'>
-                    <img src="react_sneaker/img//cart.svg" alt="" className='mr-2.5'/>
-                    <span className='mr-8'>{totalPrice} ru.</span>
+                    <img src="react_sneaker/img//cart.svg" alt="" className='wrap-cart'/>
+                    <span className='mr-8 wrap-price'>{totalPrice} ru.</span>
                 </li>
                 <li>
                     <Link to="/favorites">
-                        <img src="react_sneaker/img/heart.svg" alt="Закладки" className='mr-8 cursor-pointer'/>
+                        <img src="react_sneaker/img/heart.svg" alt="Закладки" className='mr-8 cursor-pointer wrap-heart'/>
                     </Link>
                 </li>
                 <li>

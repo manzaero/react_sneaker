@@ -38,3 +38,12 @@
     overflow: auto;
   }
 }
+
+@media (max-width: 1120px){
+  .drawer {
+    width: 285px;
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+}

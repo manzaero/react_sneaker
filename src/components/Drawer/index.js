@@ -72,7 +72,7 @@ export function Drawer({ onRemove = '', items = [], opened }){
                                 <button
                                     disabled={isLoading}
                                     onClick={ () => completeIsShop() }
-                                    className='greenButton'>Оформить заказ <img src="react_sneaker/img/vector.svg" alt="Vector"/></button>
+                                    className='greenButton'><p>Оформить заказ</p> <img src="react_sneaker/img/vector.svg" alt="Vector"/></button>
                             </div>
                         </div>
                         :

@@ -50,7 +50,7 @@ export function Index({
                         {onFavorites && <img onClick={() => onLiked()} src={isFavorite ? 'react_sneaker/img/liked.svg' : 'react_sneaker/img/unliked.svg'}
                               alt="Unliked"/>}
                     </div>
-                        <img width='100%' height={135} src={image} alt=""/>
+                        <img className='img-cart' width='100%' height={135} src={image} alt=""/>
                         <p className='text-sm my-3.5'>{name}</p>
                     <div className='flex justify-between'>
                         <div className='flex flex-col'>

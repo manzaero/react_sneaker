@@ -159,6 +159,23 @@ h2 {
   header {
     padding: 24px;
   }
+  .cartItem{
+    display: flex;
+  }
+  .cartItem img:first-child {
+    width: 40px;
+    height: 40px;
+  }
+  .cartItem div p:first-child{
+    font-size: 0.6rem;
+    line-height: 0.8rem;
+  }
+  .totalBlock ul li {
+    font-size: 0.8rem;
+  }
+  .greenButton p {
+    margin-right: 1rem;
+  }
 }
 
 @media (max-width: 720px){

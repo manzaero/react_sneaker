@@ -116,32 +116,32 @@ function App() {
 
                 <Header onClickCard = {() => setOnDrawer(!onDrawer)}/>
 
-                {/*<Routes>*/}
-                {/*    <Route path='/' element={*/}
-                {/*        <Home*/}
-                {/*            cartItem={cartItem}*/}
-                {/*            items={items}*/}
-                {/*            searchValue={searchValue}*/}
-                {/*            setSearchValue={setSearchValue}*/}
-                {/*            onChangeSearchInput={onChangeSearchInput}*/}
-                {/*            onAddFavorites={onAddFavorites}*/}
-                {/*            onAddToCart={onAddToCart}*/}
-                {/*            clearInput={clearInput}*/}
-                {/*            isLoading={isLoading}*/}
-                {/*        />*/}
-                {/*    }>*/}
+                <Routes>
+                    <Route path='/' element={
+                        <Home
+                            cartItem={cartItem}
+                            items={items}
+                            searchValue={searchValue}
+                            setSearchValue={setSearchValue}
+                            onChangeSearchInput={onChangeSearchInput}
+                            onAddFavorites={onAddFavorites}
+                            onAddToCart={onAddToCart}
+                            clearInput={clearInput}
+                            isLoading={isLoading}
+                        />
+                    }>
 
-                {/*    </Route>*/}
-                {/*    <Route path='favorites' element={*/}
-                {/*        <Favorites onAddFavorites={onAddFavorites}/>*/}
-                {/*    }>*/}
-                {/*    </Route>*/}
-                {/*    <Route path='orders' element={*/}
-                {/*        <Orders/>*/}
-                {/*    }>*/}
+                    </Route>
+                    <Route path='favorites' element={
+                        <Favorites onAddFavorites={onAddFavorites}/>
+                    }>
+                    </Route>
+                    <Route path='orders' element={
+                        <Orders/>
+                    }>
 
-                {/*    </Route>*/}
-                {/*</Routes>*/}
+                    </Route>
+                </Routes>
             </div>
         </AppContext.Provider>
     );

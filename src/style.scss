@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-
+html{
+  position: relative;
+}
 body{
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -173,8 +175,17 @@ h2 {
   .totalBlock ul li {
     font-size: 0.8rem;
   }
+  .greenButton {
+    border-radius: 10px;
+    width: 200px;
+    height: 40px;
+  }
+  .greenButton img {
+    margin-top: -8px;
+  }
   .greenButton p {
     margin-right: 1rem;
+    font-size: 0.8rem;
   }
 }
 

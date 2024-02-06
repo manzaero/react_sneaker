@@ -1,8 +1,9 @@
 .card {
   margin-top: 20px;
+  margin-right: 5px;
   border: 2px solid #f8f8f8f8;
   padding: 28px;
-  width: 210px;
+  max-width: 220px;
   border-radius: 20px;
   transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
 
@@ -13,5 +14,18 @@
   .favorite {
     position: absolute;
     cursor: pointer;
+  }
+}
+
+@media (max-width: 720px){
+  .card {
+    margin-top: 40px;
+    margin-left: 30px;
+  }
+}
+
+@media (max-width: 540px){
+  .card {
+    margin-left: 0px;
   }
 }

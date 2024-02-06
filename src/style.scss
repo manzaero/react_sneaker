@@ -139,7 +139,13 @@ h2 {
 
 }
 
+.title_search {
+  font-size: 1.5rem;
+}
 
+.grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
 
 @keyframes background-button {
   0% {
@@ -192,6 +198,13 @@ h2 {
   .cartEmpty button {
     font-size: 0.8rem;
   }
+  .title_search {
+    padding-top: 10px;
+    font-size: 14px;
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
 }
 
 
@@ -212,6 +225,10 @@ h2 {
   .search-block {
     max-height: 32px;
   }
+  .title_search {
+    padding-top: 0px;
+    font-size: 14px;
+   }
 }
 
 @media (max-width: 540px){
@@ -226,6 +243,7 @@ h2 {
   .content h1 {
     font-size: 0.8rem;
     margin-top: -20px;
+    padding-bottom: 10px;
   }
 }
 

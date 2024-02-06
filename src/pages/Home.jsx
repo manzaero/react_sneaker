@@ -31,7 +31,7 @@ function Home({
     return (
         <div className="content-main p-10">
             <div className="content flex justify-between">
-                <h1 className='font-bold text-2xl m-0'>{searchValue ? `поиск по запросу "${searchValue}"` : 'Все кроссовки'}</h1>
+                <h1 className='title_search font-bold m-0'>{searchValue ? `поиск по запросу "${searchValue}"` : 'Все кроссовки'}</h1>
                 <div className="search-block flex">
                     <img src="react_sneaker/img/search.svg" alt="Search"/>
                     {searchValue && <img
@@ -42,9 +42,9 @@ function Home({
                     <input className='' onChange={onChangeSearchInput} value={searchValue} placeholder='Поиск...' type="text"/>
                 </div>
             </div>
-            {/*<div className="grid grid-cols-4 gap-4">*/}
-            {/*    {renderItems()}*/}
-            {/*</div>*/}
+            <div className="grid">
+                {renderItems()}
+            </div>
         </div>
     );
 }

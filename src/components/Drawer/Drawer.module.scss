@@ -22,14 +22,15 @@
 }
 
 .drawer {
-  position: absolute;
+  position: fixed;
   width: 385px;
   height: 100%;
   right: 0;
   padding: 30px;
-  display: flex;
+  display: block;
   flex-direction: column;
   z-index: 100;
+
   background-color: #ffffff;
   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
   transform: translate(100%);
@@ -42,9 +43,15 @@
 
 @media (max-width: 1120px){
   .drawer {
-    width: 285px;
+    width: 100%;
+    display: block;
+    position: fixed;
+    overflow: hidden;
     h2 {
       font-size: 1.2rem;
     }
+  }
+  .cartEmpty{
+    height: 100%;
   }
 }

@@ -29,8 +29,8 @@
   padding: 30px;
   display: block;
   flex-direction: column;
-  z-index: 100;
-
+  z-index: 200;
+  overflow: scroll;
   background-color: #ffffff;
   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
   transform: translate(100%);
@@ -39,7 +39,11 @@
     flex: 1;
     overflow: auto;
   }
+  .wrapper {
+    overflow: hidden;
+  }
 }
+
 
 @media (max-width: 1120px){
   .drawer {

@@ -92,7 +92,7 @@ function App() {
             await axios.delete(`https://650888ed56db83a34d9c7a5d.mockapi.io/cart/${id}`)
             setCartItem(prev => prev.filter(item => Number(item.id) !== Number(id)))
         } catch (error) {
-            alert('Ошибка приудалении из корзины!')
+            alert('Ошибка при удалении из корзины!')
             console.log(error)
         }
     }
@@ -117,7 +117,7 @@ function App() {
                 <Header onClickCard = {() => setOnDrawer(!onDrawer)}/>
 
                 <Routes>
-                    <Route path='/' element={
+                    <Route path='' element={
                         <Home
                             cartItem={cartItem}
                             items={items}
@@ -132,11 +132,11 @@ function App() {
                     }>
 
                     </Route>
-                    <Route path='favorites' element={
+                    <Route path='/favorites' element={
                         <Favorites onAddFavorites={onAddFavorites}/>
                     }>
                     </Route>
-                    <Route path='orders' element={
+                    <Route path='/orders' element={
                         <Orders/>
                     }>
 

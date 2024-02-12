@@ -26,7 +26,7 @@ function Orders() {
             <div className="flex justify-between">
                 <h1 className='font-bold text-2xl m-0'>Приобретённый товар</h1>
             </div>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid">
                 {
                     (isLoading
                         ?  [...Array(8)]

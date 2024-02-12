@@ -14,7 +14,7 @@ function Favorites() {
             <div>
                 <h3>Тут мои кроссовки</h3>
             </div>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid">
                 {favorites.map((item, i) =>
                     <Index
                         key={i}

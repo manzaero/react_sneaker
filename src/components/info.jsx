@@ -7,7 +7,7 @@ const Info = ({image, title, description}) => {
         <div className="cartEmpty flex items-center justify-center flex-col">
             <img src={image} alt="" className="mb-2"/>
             <h2>{title}</h2>
-            <button onClick={() => closeCart()} className='greenButton'><img src="img/vector-back.svg" alt="VectorBack"/>{ description }</button>
+            <button onClick={() => closeCart()} className='greenButton'><img src="react_sneaker/img/vector-back.svg" alt="VectorBack"/>{ description }</button>
         </div>
     )
 }
